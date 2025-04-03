@@ -1,0 +1,234 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CRUD de produit",
+        "description": "Documentation de l'API pour gérer les produits",
+        "contact": {
+            "email": "yaovimawulomdegbevi@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "summary": "Liste des utilisateurs",
+                "operationId": "1bfaa78d1c2c3848ab8165c5dadcad3e",
+                "responses": {
+                    "200": {
+                        "description": "Liste des utilisateurs"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Créer un nouveau produit",
+                "description": "Ajout d'un nouvel produit dans la base de donnée",
+                "operationId": "e8185e307706e2cd84bbcf5171e2f09d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "description",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "description de l'élément"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": 15452
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Produit enrégistré avec succès!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "John Doe"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "tout est bon!"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "example": 15452
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Données invalides"
+                    },
+                    "500": {
+                        "description": "Erreur interne du Serveur"
+                    }
+                }
+            }
+        },
+        "/api/special_products/{product}": {
+            "get": {
+                "summary": "affichage d'un élément spécial",
+                "operationId": "f168e020334467bf2e761fc90013cbce",
+                "responses": {
+                    "200": {
+                        "description": "Affichage d'un élément spécifique depuis la DB a travers son ID"
+                    }
+                }
+            }
+        },
+        "/api/products/{product}": {
+            "put": {
+                "summary": "mise à jour de la données",
+                "description": "mise a jour de la donnée à travers l'identifiant",
+                "operationId": "c474d1318e5b8c3de1f4d52b6053111f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Papa"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Bon Père"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": 258
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Information mise a jour avec succès!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Papa"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Bon Père"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "example": 258
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "La mise a jour n'a pas été validé ou le produit n'existe pas"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Suppression d'un produit",
+                "description": "Suppression du produit à partir de l'identifiant ID",
+                "operationId": "1a0a353d0842ff4f9347bb66ec53e3ea",
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "description": "ID du produit à supprimer",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produit supprimé avec succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Nom du produit"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Description du produit"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "example": 10.99
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Produit non trouvé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "L'élément que vous désirez supprimer n'existe pas!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erreur interne du serveur"
+                    }
+                }
+            }
+        }
+    }
+}
