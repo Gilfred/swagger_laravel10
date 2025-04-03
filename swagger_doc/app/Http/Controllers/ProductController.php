@@ -117,7 +117,10 @@ class ProductController extends Controller
             ],404);
         }
         $product->delete();
-        return response()->json([$product],200);
+        return response()->json([
+            $product,
+            "message"=>"Cette information a été supprimer avec succès!"
+        ],200);
     }
 
     /**

@@ -19,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->group(function(){
+// Route::middleware('auth:sanctum')->group(function(){
     Route::get('/products',[ProductController::class,'index']);
     Route::post('/products',[ProductController::class,'store']);
     Route::get('/special_products/{product}',[ProductController::class,'show']);
     Route::delete('/products/{product}',[ProductController::class,'destroy']);
     Route::put('/product/{product}',[ProductController::class,'update']);
-});
+// });
