@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "952dda88-0e03-4ba6-a45d-5bb0cbd923fb",
+		"name": "swagger_laravel10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40879778",
+		"_collection_link": "https://apidocumentation-1228.postman.co/workspace/swagger_sanctum_laravel10~09a47ab9-ad82-4734-87dd-5bb5aee822da/collection/40879778-952dda88-0e03-4ba6-a45d-5bb0cbd923fb?action=share&source=collection_link&creator=40879778"
+	},
+	"item": [
+		{
+			"name": "show_all_information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Name</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Price</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>Updated At</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{id}}</td>\r",
+							"            <td>{{name}}</td>\r",
+							"            <td>{{description}}</td>\r",
+							"            <td>{{price}}</td>\r",
+							"            <td>{{created_at}}</td>\r",
+							"            <td>{{updated_at}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|OgP4FGraMjVaCI7KP3mG7UkXL0KDLhHlMwkMjjSZ5a0f1465",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "### Get Products\n\nThis endpoint makes an HTTP GET request to retrieve a list of products.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200 OK\n    \n- Content-Type: application/json\n    \n\nThe response will contain an array of product objects, each including the following attributes:\n\n- `id` (number): The unique identifier for the product.\n    \n- `name` (string): The name of the product.\n    \n- `description` (string): The description of the product.\n    \n- `price` (string): The price of the product.\n    \n- `created_at` (string): The timestamp of when the product was created.\n    \n- `updated_at` (string): The timestamp of when the product was last updated.\n    \n\n- `id` (number): The unique identifier of the product.\n    \n- `name` (string): The name of the product.\n    \n- `description` (string): The description of the product.\n    \n- `price` (string): The price of the product.\n    \n- `created_at` (string): The timestamp when the product was created.\n    \n- `updated_at` (string): The timestamp when the product was last updated."
+			},
+			"response": []
+		},
+		{
+			"name": "product_register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Price</th>\r",
+							"        <th>Updated At</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>ID</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr id=row_{{@key}}>\r",
+							"            <td>{{name}}</td>\r",
+							"            <td>{{description}}</td>\r",
+							"            <td>{{price}}</td>\r",
+							"            <td>{{updated_at}}</td>\r",
+							"            <td>{{created_at}}</td>\r",
+							"            <td>{{id}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|OgP4FGraMjVaCI7KP3mG7UkXL0KDLhHlMwkMjjSZ5a0f1465",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"fredo\",\r\n    \"description\":\"nothing\",\r\n    \"price\":475\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "This API request allows you to save all products for later use as data. No parameters are required for this request.\n\nUpon successful execution, the API returns a status code of 201 and the content type is in JSON format. The response includes the details of the product that was saved, including its name, description, price, updated_at, created_at, and id.\n\nThis endpoint is used to create a new product.\n\n#### Request Body\n\n- Type: JSON\n    \n    - `name`: (string) The name of the product.\n        \n    - `description`: (string) The description of the product.\n        \n    - `price`: (number) The price of the product.\n        \n\n#### Response\n\nThe response is in JSON format and represents the newly created product. Below is the JSON schema for the response:\n\n``` json\n{\n    \"type\": \"array\",\n    \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"name\": {\"type\": \"string\"},\n            \"description\": {\"type\": \"string\"},\n            \"price\": {\"type\": \"number\"},\n            \"updated_at\": {\"type\": \"string\"},\n            \"created_at\": {\"type\": \"string\"},\n            \"id\": {\"type\": \"number\"}\n        }\n    }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "show_special_product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Name</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Price</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>Updated At</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{id}}</td>\r",
+							"            <td>{{name}}</td>\r",
+							"            <td>{{description}}</td>\r",
+							"            <td>{{price}}</td>\r",
+							"            <td>{{created_at}}</td>\r",
+							"            <td>{{updated_at}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|OgP4FGraMjVaCI7KP3mG7UkXL0KDLhHlMwkMjjSZ5a0f1465",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/special_products/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"special_products",
+						"5"
+					]
+				},
+				"description": "The API endpoint retrieves information about a specific special product with the ID 5. The response is in JSON format and includes an array of objects, each representing a special product. The objects have the following properties:\n\n- `id` (number): The unique identifier of the special product.\n    \n- `name` (string): The name of the special product.\n    \n- `description` (string): The description of the special product.\n    \n- `price` (string): The price of the special product.\n    \n- `created_at` (string): The timestamp indicating when the special product was created.\n    \n- `updated_at` (string): The timestamp indicating when the special product was last updated.\n    \n\n### Request Body\n\nThis request does not require a request body.\n\n### Response Body\n\n- `id` (number): The unique identifier of the special product.\n    \n- `name` (string): The name of the special product.\n    \n- `description` (string): The description of the special product.\n    \n- `price` (string): The price of the special product.\n    \n- `created_at` (string): The timestamp when the special product was created.\n    \n- `updated_at` (string): The timestamp when the special product was last updated."
+			},
+			"response": []
+		},
+		{
+			"name": "delete_product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Name</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Price</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>Updated At</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    <tr>\r",
+							"        <td>{{response.0.id}}</td>\r",
+							"        <td>{{response.0.name}}</td>\r",
+							"        <td>{{response.0.description}}</td>\r",
+							"        <td>{{response.0.price}}</td>\r",
+							"        <td>{{response.0.created_at}}</td>\r",
+							"        <td>{{response.0.updated_at}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|OgP4FGraMjVaCI7KP3mG7UkXL0KDLhHlMwkMjjSZ5a0f1465",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"3"
+					]
+				},
+				"description": "This HTTP DELETE request is used to delete a product from the database by providing the product identifier in the request URL. The response is in JSON format and includes the details of the deleted product along with a message. The product identifier to be deleted should be provided as a parameter in the request URL.\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"0\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"number\"\n        },\n        \"name\": {\n          \"type\": \"string\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        },\n        \"price\": {\n          \"type\": \"string\"\n        },\n        \"created_at\": {\n          \"type\": \"string\"\n        },\n        \"updated_at\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "update_product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <pre>{{JSONstringify response}}</pre>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|OgP4FGraMjVaCI7KP3mG7UkXL0KDLhHlMwkMjjSZ5a0f1465",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"afodable beat\",\r\n    \"description\":\"le bonjour est partagé\",\r\n    \"price\":215\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/product/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"product",
+						"4"
+					]
+				},
+				"description": "### Update Product\n\nThis endpoint allows the user to update a specific product by sending an HTTP PUT request to the specified URL.\n\n#### Request Body\n\n- The request should include a JSON payload in the raw request body type with the following parameters:\n    \n    - `name`: (string) The updated name of the product.\n        \n    - `description`: (string) The updated description of the product.\n        \n    - `price`: (number) The updated price of the product.\n        \n\nExample:\n\n``` json\n{\n  \"name\": \"updated name\",\n  \"description\": \"updated description\",\n  \"price\": 100\n}\n\n ```\n\n#### Response\n\n- **HTTP 200** - Successful update. The response will be in JSON format with the following properties:\n    \n    - `id`: (number) The ID of the updated product.\n        \n    - `name`: (string) The updated name of the product.\n        \n    - `description`: (string) The updated description of the product.\n        \n    - `price`: (number) The updated price of the product.\n        \n    - `created_at`: (string) Timestamp of the product's creation.\n        \n    - `updated_at`: (string) Timestamp of the product's last update.\n        \n    - `message`: (string) Empty string.\n        \n- **HTTP 404** - Unsuccessful update. The response will be in JSON format with the following properties:\n    \n    - `0`: (object) Empty object with default values for the product fields.\n        \n        - `id`: (number) 0\n            \n        - `name`: (string) Empty string\n            \n        - `description`: (string) Empty string\n            \n        - `price`: (number) 0\n            \n        - `created_at`: (string) Empty string\n            \n        - `updated_at`: (string) Empty string\n            \n    - `message`: (string) Empty string\n        \n\nThis endpoint is used to update a specific product in the system.\n\n#### Request Body\n\n- `name` (string): The updated name of the product.\n    \n- `description` (string): The updated description of the product.\n    \n- `price` (number): The updated price of the product.\n    \n\nExample:\n\n``` json\n{\n    \"name\": \"afodable beat\",\n    \"description\": \"le bonjour est partagé\",\n    \"price\": 215\n}\n\n ```\n\n#### Response\n\nUpon successful update, the endpoint returns a status code of 200 and a JSON object containing the updated product details:\n\n``` json\n{\n    \"id\": 0,\n    \"name\": \"\",\n    \"description\": \"\",\n    \"price\": 0,\n    \"created_at\": \"\",\n    \"updated_at\": \"\",\n    \"message\": \"\"\n}\n\n ```\n\nThis endpoint is used to update the details of a specific product.\n\n#### Request Body\n\n- name (text, required): The updated name of the product.\n    \n- description (text, required): The updated description of the product.\n    \n- price (text, required): The updated price of the product.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"0\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"integer\"\n                },\n                \"name\": {\n                    \"type\": \"string\"\n                },\n                \"description\": {\n                    \"type\": \"string\"\n                },\n                \"price\": {\n                    \"type\": \"number\"\n                },\n                \"created_at\": {\n                    \"type\": \"string\"\n                },\n                \"updated_at\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"message\": {\n            \"type\": \"string\"\n        }\n    }\n}\n\n ```\n\nThis endpoint is used to update a specific product by its ID.\n\n#### Request Body\n\n- `name` (string): The updated name of the product.\n    \n- `description` (string): The updated description of the product.\n    \n- `price` (number): The updated price of the product.\n    \n\nExample:\n\n``` json\n{\n    \"name\": \"updated name\",\n    \"description\": \"updated description\",\n    \"price\": 100\n}\n\n ```\n\n#### Response\n\n- `id` (number): The ID of the updated product.\n    \n- `name` (string): The updated name of the product.\n    \n- `description` (string): The updated description of the product.\n    \n- `price` (number): The updated price of the product.\n    \n- `created_at` (string): The timestamp of when the product was created.\n    \n- `updated_at` (string): The timestamp of when the product was last updated.\n    \n- `message` (string): Any additional message related to the update operation.\n    \n\nExample:\n\n``` json\n{\n    \"0\": {\n        \"id\": 0,\n        \"name\": \"\",\n        \"description\": \"\",\n        \"price\": 0,\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    },\n    \"message\": \"\"\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
