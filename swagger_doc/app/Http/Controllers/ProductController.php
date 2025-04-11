@@ -13,11 +13,13 @@ class ProductController extends Controller
      * path="/api/products",
      * summary="Liste des utilisateurs",
      * @OA\Response(response="200", description="Liste des utilisateurs")
+     *
      * )
      */
         //
-    public function index(){
-        return Prduct::all();
+    public function index(Request $request){
+        $post=Prduct::paginate(2);
+        return response()->json([$post]);
     }
 
    /**
